@@ -5,7 +5,7 @@ use crate::api::egl::{
 };
 use crate::api::glx::{Context as GlxContext, GLX};
 use crate::platform::unix::x11::XConnection;
-use crate::platform::unix::{EventLoopWindowTargetExtUnix, WindowBuilderExtUnix, WindowExtUnix};
+use crate::platform::unix::{EventLoopWindowTargetExtX11, WindowBuilderExtX11, WindowExtX11};
 use crate::platform_impl::x11_utils;
 use crate::{
     Api, ContextError, CreationError, GlAttributes, GlRequest, PixelFormat,
@@ -462,7 +462,7 @@ impl Context {
             EglSurfaceType::Window,
             fallback,
             fallback,
-            Some(wb.window.transparent),
+            Some(wb.transparent()),
         )?;
 
         // getting the `visual_infos` (a struct that contains information about

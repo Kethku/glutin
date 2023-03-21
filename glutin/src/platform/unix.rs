@@ -13,7 +13,10 @@ pub use glutin_egl_sys::EGLContext;
 #[cfg(feature = "x11")]
 pub use glutin_glx_sys::GLXContext;
 
-pub use winit::platform::unix::*;
+#[cfg(feature = "wayland")]
+pub use winit::platform::wayland::{self, EventLoopWindowTargetExtWayland, WindowExtWayland};
+#[cfg(feature = "x11")]
+pub use winit::platform::x11::{self, EventLoopWindowTargetExtX11, WindowBuilderExtX11, WindowExtX11};
 
 use std::os::raw;
 

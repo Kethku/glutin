@@ -5,7 +5,7 @@ use crate::{
     ContextError, CreationError, GlAttributes, PixelFormat, PixelFormatRequirements, Rect,
 };
 
-use crate::platform::unix::{EventLoopWindowTargetExtUnix, WindowExtUnix};
+use crate::platform::unix::{EventLoopWindowTargetExtWayland, WindowExtWayland};
 use glutin_egl_sys as ffi;
 pub use wayland_client::sys::client::wl_display;
 use winit;

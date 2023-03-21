@@ -24,7 +24,10 @@ pub use x11::utils as x11_utils;
 
 #[cfg(feature = "x11")]
 use crate::platform::unix::x11::XConnection;
-use crate::platform::unix::EventLoopWindowTargetExtUnix;
+#[cfg(feature = "wayland")]
+use winit::platform::wayland::EventLoopWindowTargetExtWayland;
+#[cfg(feature = "x11")]
+use winit::platform::x11::EventLoopWindowTargetExtX11;
 use winit::dpi;
 use winit::event_loop::EventLoopWindowTarget;
 use winit::window::{Window, WindowBuilder};
